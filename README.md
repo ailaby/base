@@ -2,7 +2,7 @@
 
 # Base Image
 
-All ai-dock images are extended from this base image.
+All ailaby images are extended from this base image.
 
 This file should form the basis for the README.md for all extended images, with nothing but this introduction removed and additional features documented as required.
 
@@ -38,7 +38,7 @@ As this overlaying happens after the main build, it is easy to add extra files s
 
 Any directories and files that you add into `opt/storage` will be made available in the running container at `$WORKSPACE/storage`.  
 
-This directory is monitored by `inotifywait`. Any items appearing in this directory will be automatically linked to the application directories as defined in `/opt/ai-dock/storage_monitor/etc/mappings.sh`.  This is particularly useful if you need to run several applications that each need to make use of the stored files.
+This directory is monitored by `inotifywait`. Any items appearing in this directory will be automatically linked to the application directories as defined in `/opt/ailaby/storage_monitor/etc/mappings.sh`.  This is particularly useful if you need to run several applications that each need to make use of the stored files.
 
 ## Run Locally
 
@@ -57,9 +57,9 @@ __Container Cloud__
 
 Container providers don't give you access to the docker host but are quick and easy to set up. They are often inexpensive when compared to a full VM or bare metal solution.
 
-All images built for ai-dock are tested for compatibility with both [vast.ai](https://link.ai-dock.org/vast.ai) and [runpod.io](https://link.ai-dock.org/runpod.io).
+All images built for ailaby are tested for compatibility with both [vast.ai](https://link.ailaby.org/vast.ai) and [runpod.io](https://link.ailaby.org/runpod.io).
 
-Images that include Jupyter are also tested to ensure compatibility with [Paperspace Gradient](https://link.ai-dock.org/console.paperspace.com)
+Images that include Jupyter are also tested to ensure compatibility with [Paperspace Gradient](https://link.ailaby.org/console.paperspace.com)
 
 See a list of pre-configured templates [here](#pre-configured-templates)
 
@@ -91,7 +91,7 @@ _**SSH Tunnel**_
 
 You will only need to expose port `22` (SSH) which can then be used with port forwarding to allow **secure** connections to your services.
 
-If you are unfamiliar with port forwarding then you should read the guides [here](https://link.ai-dock.org/guide-ssh-tunnel-do-a) and [here](https://link.ai-dock.org/guide-ssh-tunnel-do-b).
+If you are unfamiliar with port forwarding then you should read the guides [here](https://link.ailaby.org/guide-ssh-tunnel-do-a) and [here](https://link.ailaby.org/guide-ssh-tunnel-do-b).
 
 _**Cloudflare Tunnel**_
 
@@ -125,7 +125,7 @@ Example usage: `docker run -e STANDARD_VAR1="this value" -e STANDARD_VAR2="that 
 
 ## Security
 
-All ai-dock containers are interactive and will not drop root privileges. You should ensure that your docker daemon runs as an unprivileged user.
+All ailaby containers are interactive and will not drop root privileges. You should ensure that your docker daemon runs as an unprivileged user.
 
 ### System
 
@@ -160,7 +160,7 @@ You can use the environment variable `PROVISIONING_SCRIPT` to specify the URL of
 
 The URL must point to a plain text file - GitHub Gists/Pastebin (raw) are suitable options.
 
-If you are running locally you may instead opt to mount a script at `/opt/ai-dock/bin/provisioning.sh`.
+If you are running locally you may instead opt to mount a script at `/opt/ailaby/bin/provisioning.sh`.
 
 >[!NOTE]  
 >If configured, `sshd`, `caddy`, `cloudflared`, `rclone`, `serviceportal`, `storagemonitor` & `logtail` will be launched before provisioning; Any other processes will launch after.
@@ -193,7 +193,7 @@ If you are extending this image or running an interactive session where addition
 | `micromamba deactivate`              | Close the active environment |
 | `micromamba run -n [name] [command]` | Run a command in the named environment without activating |
 
-All ai-dock images create micromamba environments using the `--always-softlink` flag.
+All ailaby images create micromamba environments using the `--always-softlink` flag.
 
 To create an additional micromamba environment, eg for python, you can use the following:
 
@@ -203,7 +203,7 @@ To create an additional micromamba environment, eg for python, you can use the f
 
 Data inside docker containers is ephemeral - You'll lose all of it when the container is destroyed.
 
-You may opt to mount a data volume at `/workspace` - This is a directory that ai-dock images will look for to make downloaded data available outside of the container for persistence.
+You may opt to mount a data volume at `/workspace` - This is a directory that ailaby images will look for to make downloaded data available outside of the container for persistence.
 
 When a mounted workspace is available, all micromamba environments and feature software packages can be moved to the workspace directory to persist changes and shorten startup time in cloud environments.
 
@@ -282,7 +282,7 @@ If you choose not to provide a public key then the SSH server will not be starte
 
 To make use of this service you should map port `22` to a port of your choice on the host operating system.
 
-See [this guide](https://link.ai-dock.org/guide-sshd-do) by DigitalOcean for an excellent introduction to working with SSH servers.
+See [this guide](https://link.ailaby.org/guide-sshd-do) by DigitalOcean for an excellent introduction to working with SSH servers.
 
 >[!NOTE]  
 >_SSHD is included because the end-user should be able to know the version prior to deloyment. Using a providers add-on, if available, does not guarantee this._
@@ -302,7 +302,7 @@ If you are logged into the container you can follow the logs by running `logtail
 
 ### Storage Monitor
 
-This service detects changes to files in `$WORKSPACE/storage` and creates symbolic links to the application directories defined in `/opt/ai-dock/storage_monitor/etc/mappings.sh`
+This service detects changes to files in `$WORKSPACE/storage` and creates symbolic links to the application directories defined in `/opt/ailaby/storage_monitor/etc/mappings.sh`
 
 ## Open Ports
 
@@ -326,10 +326,10 @@ Where a GPU is required you will need either `:*cuda*` or `:*rocm*` depending on
 
 A curated list of VM providers currently offering GPU instances:
 
-- [Akami/Linode](https://link.ai-dock.org/linode.com)
-- [Amazon Web Services](https://link.ai-dock.org/aws.amazon.com)
-- [Google Compute Engine](https://link.ai-dock.org/cloud.google.com)
-- [Vultr](https://link.ai-dock.org/vultr.com)
+- [Akami/Linode](https://link.ailaby.org/linode.com)
+- [Amazon Web Services](https://link.ailaby.org/aws.amazon.com)
+- [Google Compute Engine](https://link.ailaby.org/cloud.google.com)
+- [Vultr](https://link.ailaby.org/vultr.com)
 
 ---
 

@@ -28,13 +28,13 @@ ENV LD_LIBRARY_PATH=
 
 COPY --from=caddybuilder /opt/caddy/ /opt/caddy/
 
-# Determines which scripts at /opt/ai-dock/bin/build/layerX will be run by init.sh
+# Determines which scripts at /opt/ailaby/bin/build/layerX will be run by init.sh
 ARG XPU_TARGET="GPU_NVIDIA" # GPU_AMD, CPU
 ENV XPU_TARGET=${XPU_TARGET}
 
 LABEL org.opencontainers.image.source https://github.com/ailaby/boxai-base
 
-LABEL org.opencontainers.image.description "Base image for ai-dock."
+LABEL org.opencontainers.image.description "Base image for ailaby."
 
 LABEL maintainer="Rob Ballantyne <rob@dynamedia.uk>"
 
@@ -46,9 +46,9 @@ ENV TZ=UTC
 ENV SHELL="/bin/bash"
 ENV USER_NAME=user
 ENV USER_PASSWORD=password
-ENV USER_GROUPS=users,ai-dock,adm,sudo,audio,video,tty,cdrom,dialout,dip,fax,floppy,lp,plugdev,ssl-cert,sudo,tape,voice
+ENV USER_GROUPS=users,ailaby,adm,sudo,audio,video,tty,cdrom,dialout,dip,fax,floppy,lp,plugdev,ssl-cert,sudo,tape,voice
 ENV DEBIAN_FRONTEND=noninteractive
-ENV PATH=/opt/ai-dock/bin:/opt/micromamba/bin:/opt/caddy/bin:$PATH
+ENV PATH=/opt/ailaby/bin:/opt/micromamba/bin:/opt/caddy/bin:$PATH
 ENV OPT_SYNC=
 ENV PYTHONUNBUFFERED=true
 ENV APT_INSTALL="apt-get install -y --no-install-recommends"
@@ -66,11 +66,11 @@ ARG ROCM_STRING
 # Use build scripts to ensure we can build all targets from one Dockerfile in a single layer.
 # Don't put anything heavy in here - We can use multi-stage building above if necessary.
 RUN yes | unminimize && \
-    set -eo pipefail && /opt/ai-dock/bin/build/layer0/init.sh | tee /var/log/build.log
+    set -eo pipefail && /opt/ailaby/bin/build/layer0/init.sh | tee /var/log/build.log
 
 # Copy overrides and new files into a final layer for fast rebuilds. Uncomment below
 #COPY --chown=0:1111 ./COPY_ROOT_EXTRA/ /
-#RUN set -eo pipefail && /opt/ai-dock/bin/build/layer1/init.sh | tee -a /var/log/build.log
+#RUN set -eo pipefail && /opt/ailaby/bin/build/layer1/init.sh | tee -a /var/log/build.log
 
-# Keep init.sh as-is and place additional logic in /opt/ai-dock/bin/preflight.sh
+# Keep init.sh as-is and place additional logic in /opt/ailaby/bin/preflight.sh
 CMD ["init.sh"]

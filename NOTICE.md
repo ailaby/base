@@ -12,6 +12,6 @@ I have chosen to apply a custom license to this software for the following reaso
 
 I welcome sponsorship from commercial entities utilizing this software, although it is not mandatory. Your support helps sustain the ongoing development and improvement of this project.
 
-You can sponsor this project at https://github.com/sponsors/ai-dock.
+You can sponsor this project at https://github.com/sponsors/ailaby.
 
 Your understanding and support are greatly appreciated.
