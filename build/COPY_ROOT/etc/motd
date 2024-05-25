@@ -1,4 +1,4 @@
-Container based on ghcr.io/ailaby/boxai-base (https://github.com/ailaby/boxai-base)
+Container based on ghcr.io/ailaby/ailaby-base (https://github.com/ailaby/ailaby-base)
 
 All running services are managed by supervisord. 
 You can use supervisorctl to view, start and stop them.

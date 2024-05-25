@@ -11,9 +11,9 @@ services:
         CUDA_STRING: ${CUDA_STRING:-11.8.0-base}
         ROCM_STRING: ${ROCM_STRING:-5.7-runtime}
       tags:
-        - "ghcr.io/ailaby/boxai-base:${IMAGE_TAG:-cuda-11.8.0-base-22.04}"
+        - "ghcr.io/ailaby/ailaby-base:${IMAGE_TAG:-cuda-11.8.0-base-22.04}"
         
-    image: ghcr.io/ailaby/boxai-base:${IMAGE_TAG:-cuda-11.8.0-base-22.04}
+    image: ghcr.io/ailaby/ailaby-base:${IMAGE_TAG:-cuda-11.8.0-base-22.04}
     
     ## For Nvidia GPU's - You probably want to uncomment this
     #deploy:
@@ -67,4 +67,4 @@ services:
         - SERVICEPORTAL_PORT_HOST=${SERVICEPORTAL_PORT_HOST:-1111}
         - SERVICEPORTAL_METRICS_PORT=${SERVICEPORTAL_METRICS_PORT:-21111}
         - SERVICEPORTAL_URL=${SERVICEPORTAL_URL:-}
-        #- PROVISIONING_SCRIPT=https://raw.githubusercontent.com/ailaby/boxai-base/main/config/provisioning/default.sh
+        #- PROVISIONING_SCRIPT=https://raw.githubusercontent.com/ailaby/ailaby-base/main/config/provisioning/default.sh
