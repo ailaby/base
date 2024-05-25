@@ -32,7 +32,7 @@ COPY --from=caddybuilder /opt/caddy/ /opt/caddy/
 ARG XPU_TARGET="GPU_NVIDIA" # GPU_AMD, CPU
 ENV XPU_TARGET=${XPU_TARGET}
 
-LABEL org.opencontainers.image.source https://github.com/ai-dock/base-image
+LABEL org.opencontainers.image.source https://github.com/ailaby/boxai-base
 
 LABEL org.opencontainers.image.description "Base image for ai-dock."
 
