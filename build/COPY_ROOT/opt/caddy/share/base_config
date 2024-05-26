@@ -34,8 +34,8 @@
     
     @authorized {
         expression \
-            {http.request.cookie.ai_dock_token} == "{$WEB_TOKEN}" || \
-            {http.request.cookie.ai_dock_token} == "{$WEB_PASSWORD_B64}" || \
+            {http.request.cookie.ailaby_token} == "{$WEB_TOKEN}" || \
+            {http.request.cookie.ailaby_token} == "{$WEB_PASSWORD_B64}" || \
             {http.request.header.authorization} == "Bearer {$WEB_TOKEN}" || \
             {http.request.uri.query.token} == "{$WEB_TOKEN}" || \
             {http.request.header.authorization} == "Basic {$WEB_PASSWORD_B64}" || \

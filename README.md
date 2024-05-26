@@ -26,7 +26,7 @@ ROCm builds are experimental. Please give feedback.
 ##### _CPU_
 `:cpu-[ubuntu-version]`
 
-Browse [here](https://github.com/ailaby/ailaby-base/pkgs/container/base-image) for an image suitable for your target environment.
+Browse [here](https://github.com/ailaby/ailaby-base/pkgs/container/ailaby-base) for an image suitable for your target environment.
 
 ## Building Images
 
