@@ -330,7 +330,3 @@ A curated list of VM providers currently offering GPU instances:
 - [Amazon Web Services](https://link.ailaby.org/aws.amazon.com)
 - [Google Compute Engine](https://link.ailaby.org/cloud.google.com)
 - [Vultr](https://link.ailaby.org/vultr.com)
-
----
-
-_The author ([@robballantyne](https://github.com/robballantyne)) may be compensated if you sign up to services linked in this document. Testing multiple variants of GPU images in many different environments is both costly and time-consuming; This helps to offset costs_
