@@ -115,7 +115,7 @@ You can use the included `cloudflared` service to make secure connections withou
 | `WEB_USER`               | Username for web services (default `user`) |
 | `WEB_PASSWORD`           | Password for web services (default `auto generated`) |
 | `WORKSPACE`              | A volume path. Defaults to `/workspace/` |
-| `WORKSPACE_SYNC`         | Move mamba environments and services to workspace if mounted (default `false`) |
+| `WORKSPACE_MAMBA_SYNC`   | Move mamba environments and services to workspace if mounted (default `false`) |
 
 Environment variables can be specified by using any of the standard methods (`docker-compose.yaml`, `docker run -e...`). Additionally, environment variables can also be passed as parameters of `init.sh`.
 
@@ -207,7 +207,7 @@ You may opt to mount a data volume at `/workspace` - This is a directory that ai
 
 When a mounted workspace is available, all micromamba environments and feature software packages can be moved to the workspace directory to persist changes and shorten startup time in cloud environments.
 
-To enable this behaviour you can set the environment variable `WORKSPACE_SYNC=true`.
+To enable this behaviour you can set the environment variable `WORKSPACE_MAMBA_SYNC=true`.
 
 You can define an alternative path for the workspace directory by passing the environment variable `WORKSPACE=/my/alternative/path/` and mounting your volume there. This feature will generally assist where cloud providers enforce their own mountpoint location for persistent storage.
 
