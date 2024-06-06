@@ -7,11 +7,11 @@ ENV PATH=/opt/go/bin:$PATH
 ENV GOROOT=/opt/go
 RUN apt-get update && \
     apt-get install -y wget && \
-    wget https://dl.google.com/go/go1.20.5.linux-amd64.tar.gz && \
-    tar -xf go1.20.5.linux-amd64.tar.gz && \
+    wget https://dl.google.com/go/go1.22.4.linux-amd64.tar.gz && \
+    tar -xf go1.22.4.linux-amd64.tar.gz && \
     mv ./go /opt && \ 
-    wget https://github.com/caddyserver/xcaddy/releases/download/v0.3.5/xcaddy_0.3.5_linux_amd64.deb && \
-    apt-get install ./xcaddy_0.3.5_linux_amd64.deb && \
+    wget https://github.com/caddyserver/xcaddy/releases/download/v0.4.2/xcaddy_0.4.2_linux_amd64.deb && \
+    apt-get install ./xcaddy_0.4.2_linux_amd64.deb && \
     xcaddy build \
         --with github.com/caddyserver/replace-response && \
     mkdir -p /opt/caddy/bin && \
