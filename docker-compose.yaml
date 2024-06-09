@@ -42,7 +42,7 @@ services:
         # SSH available on host machine port 2222 to avoid conflict. Change to suit
         - ${SSH_PORT_HOST:-2222}:22
         # Syncthing
-        - ${SYNCTHING_UI_PORT_HOST:-8384}:${SYNCTHING_UI_PORT_HOST:-8384}
+        - ${SYNCTHING_PORT_HOST:-8384}:${SYNCTHING_PORT_HOST:-8384}
         - ${SYNCTHING_TRANSPORT_PORT_HOST:-22999}:${SYNCTHING_TRANSPORT_PORT_HOST:-22999}
         # Caddy port for service portal
         - ${SERVICEPORTAL_PORT_HOST:-1111}:${SERVICEPORTAL_PORT_HOST:-1111}
@@ -60,7 +60,7 @@ services:
         - WEB_USER=${WEB_USER:-user}
         - WEB_PASSWORD=${WEB_PASSWORD:-password}
         - SERVERLESS=${SERVERLESS:-false}
-        - SYNCTHING_UI_PORT_HOST=${SYNCTHING_UI_PORT_HOST:-8384}
+        - SYNCTHING_PORT_HOST=${SYNCTHING_PORT_HOST:-8384}
         - SYNCTHING_URL=${SYNCTHING_URL:-}
         - SYNCTHING_TRANSPORT_PORT_HOST=${SYNCTHING_TRANSPORT_PORT_HOST:-22999}
         - SSH_PORT_HOST=${SSH_PORT_HOST:-2222}
